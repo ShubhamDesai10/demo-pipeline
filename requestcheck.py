@@ -1,7 +1,11 @@
 import requests
 from getapi import getApiURL
+import json
 
+def responseValidation():
 
-response = requests.get(getApiURL())
+    response = requests.get(getApiURL())
 
-print(response)
+    return response.status_code
+
+responseValidation()
