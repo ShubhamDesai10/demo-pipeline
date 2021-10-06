@@ -95,7 +95,7 @@ Resources:
               'statusCode': 200,
               'headers': {},
               'multiValueHeaders': {},
-              'body': 'Hello, Shubham!'
+              'body': 'Hello, World!'
             }
             return response
       Description: AWS Lambda function
