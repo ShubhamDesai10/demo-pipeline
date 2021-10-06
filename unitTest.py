@@ -11,6 +11,7 @@ class ConfigTestCase(unittest.TestCase):
             print("Test didn't pass!")
             getapi.deleteApi()
             print("Stack Deleted")
+            exit(1)
        
 
 
