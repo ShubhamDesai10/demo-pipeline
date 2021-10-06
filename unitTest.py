@@ -1,7 +1,7 @@
 import unittest
 from requestcheck import responseValidation
 
-class COnfigTestCase(unittest.TestCase):
+class ConfigTestCase(unittest.TestCase):
     def testResponse(self):
         response = responseValidation()
         self.assertTrue(response == 200)
