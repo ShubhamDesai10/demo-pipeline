@@ -1,4 +1,5 @@
 import boto3
+from requests.models import Response
 
 def getApiURL():
     clientObj = boto3.client('apigateway')
@@ -13,5 +14,9 @@ def getApiURL():
 
     api_url = "https://{}.execute-api.us-east-2.amazonaws.com/v0/lambda".format(id)
     return api_url
+
+def deleteApi():
+    clientObj = boto3.client('cloudformation')
+    clientObj.delete_stack(StackName='Hello-App')
 
 
