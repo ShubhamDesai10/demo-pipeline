@@ -4,8 +4,13 @@ import getapi
 
 class ConfigTestCase(unittest.TestCase):
     def testResponse(self):
-        response = responseValidation()
-        self.assertEqual(response, 200)
+        try:
+            response = responseValidation()
+            self.assertEqual(response, 200)
+        except Exception as e:
+            print("Test didn't pass!")
+            getapi.deleteApi()
+            print("Stack Deleted")
        
 
 
