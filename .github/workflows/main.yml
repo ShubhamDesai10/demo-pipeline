@@ -28,6 +28,7 @@ jobs:
         with:
           aws-access-key-id: ASIA5CA4YRK6VER6GYAH
           aws-secret-access-key: R7vKOVho1eIwAAEyJ4GulsO/fZUjOGsrho2CHHd8
+          aws-session-token: IQoJb3JpZ2luX2VjEPX//////////wEaCXVzLWVhc3QtMSJGMEQCICjzKJ6UNEpW2cKqS0ryL0g9KmoJNcWrclhaR+oSw1nSAiANSYgxPX179WUp1n2nxj0Rk9MAhKgkabAaAq5DYKRV0CqqAwhuEAIaDDg5NzcwODQ5MzUwMSIMG352zTrLIT513oZlKocD07VfiJw3phYFfFHtIBVa7EkJVsdD+/WAhHqWgrNYdvX4zZ6dfXjmuwDkJsRkViH6PJB1zonCJcdX/eI01ndk4sCbehk1ohK3ud56WDyvTQTFKy/LynUtEA2Kqz/5oPnI7Ib/p8XtViBgw+3SSwsMlfd2CkX392R3ufvZcXbrcLV3NlDj5D5I1Iufgzej0k7fe2opqRgVibftrlWvEbI1rIi+eArqwaSB64IqZICq3mBBtNUklWKH9eeF2pq0P0Z8dJkRJiC5oQIMVseuccun5wManeVJMkOL9yHth+Q3/3vzpcZXE/d8dVaoQz3iiilfcFuhGY7UwkdlPuP5p66j9Hobk7B6iM910eYq0vOqEQ/A7cHy8gDyxzveXt09ApD1ZhjrSpupWxidXf1AgDGhPWO2swPEk6nOBikc2XYPbJ5cWMUSc5/dod/YFcqzxs1vOZOwTNuaBF4YBLnELjZxBJPryTeTbi1Thk8erPmK76A5u2ajJFLqJ80HBNdpWKgbPo3IkEXvDDD+yvSKBjqnAbHxjtI0ilRR1n1eZuH7MupyqXUIeVE25a4CzpWDH470YQbml2xdd5Al/etDV9vprZ+hqblh8wREhhNJxgQImYrh7BXP4QH20fFijhO232eoVk35VpATT4rpG6hCZReoNlOUXg4tZIoBr694thD4KwZ1qCiiRuVuMhqLMq9eXun6CEqESBBNOYEjRbtlldQiWfbmpQvs2+D3c3lcl4qKKWDLgnM9jaMa
           aws-region: ${{ github.event.inputs.region }}
 
       # Deploy to AWS CloudFormation
