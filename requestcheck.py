@@ -1,4 +1,3 @@
-import re
 import requests
 from getapi import getApiURL
 
