@@ -12,7 +12,7 @@ def getApiURL():
             global id
             id = x['id']
 
-    api_url = "https://{}.execute-api.us-east-2.amazonaws.com/v0/lambda/ab".format(id)
+    api_url = "https://{}.execute-api.us-east-2.amazonaws.com/v0/lambda".format(id)
     return api_url
 
 def deleteApi():
