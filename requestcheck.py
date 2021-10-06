@@ -8,4 +8,3 @@ def responseValidation():
 
     return response.status_code
 
-responseValidation()
