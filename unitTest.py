@@ -1,5 +1,6 @@
 import unittest
 from requestcheck import responseValidation
+import getapi
 
 class ConfigTestCase(unittest.TestCase):
     def testResponse(self):
@@ -7,7 +8,9 @@ class ConfigTestCase(unittest.TestCase):
             response = responseValidation()
             self.assertEqual(response, 200)
         except Exception as e:
-            print(e)
+            print("Test didn't pass!")
+            getapi.deleteApi()
+            print("Stack Deleted")
 
 
 if __name__ == "__main__":
