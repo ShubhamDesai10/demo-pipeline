@@ -21,6 +21,16 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: hello-pipeline
+          
+      - name: Setup python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.9
+          
+      - name: Install boto3 dependency 
+        run: |
+          python -m pip install --upgrade pip
+          pip install boto3
 
       # Configure AWS Credential
       - name: Configure AWS Credentials
@@ -38,3 +48,11 @@ jobs:
           name: Hello-App
           template: Hello-App-Stack.yaml
           no-fail-on-empty-changeset: "1"
+          
+      - name: Run Tests
+        run: python unitTest.py
+      
+          
+      
+          
+    
