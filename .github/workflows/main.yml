@@ -47,7 +47,7 @@ jobs:
           
           
       - name: Set file permissions
-        run: sudo chmod 777 /hello-pkg.zip
+        run: sudo chmod 777 /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
          
 
       # Configure AWS Credential
@@ -73,7 +73,7 @@ jobs:
           # Name of S3 Bucket
           bucket: helloworldappbucket
           # A Local Source Directory to Upload
-          source: /hello-pkg.zip
+          source: /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
       
 
       # Deploy to AWS CloudFormation
