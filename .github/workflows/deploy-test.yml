@@ -1,6 +1,9 @@
 name: 'Deploy to AWS CloudFormation'
 
-on: [push]
+on:
+  push: 
+    paths: 
+      - 'index.py'
 
 #   workflow_dispatch:
 #     inputs:
