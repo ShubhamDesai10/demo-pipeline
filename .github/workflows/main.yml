@@ -2,7 +2,8 @@ name: 'Deploy to AWS CloudFormation'
 
 on: 
   push:
-    branches: [hello-pipeline]
+    branches: 
+      - hello-pipeline
 
 #   workflow_dispatch:
 #     inputs:
