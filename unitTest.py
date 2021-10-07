@@ -6,10 +6,11 @@ class ConfigTestCase(unittest.TestCase):
     def testResponse(self):
         try:
             response = responseValidation()
+            print(response.text)
             self.assertEqual(response, 200)
         except Exception as e:
             print("Test didn't pass!")
-            #getapi.deleteApi()
+            getapi.deleteApi()
             print("Stack Deleted")
             exit(1)
        
