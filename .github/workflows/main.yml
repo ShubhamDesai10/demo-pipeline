@@ -46,11 +46,6 @@ jobs:
         run: sudo chmod 777 /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
          
 
-      - name: check system
-        run: |
-          hostname -f
-          ls -lhrt /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
-
       # Configure AWS Credential
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -60,10 +55,10 @@ jobs:
           aws-session-token: ${{ SECRETS.SESSION_TOKEN }}
           aws-region: ${{ github.event.inputs.region }}
           
-      - name: "Delete S3 Objects" 
-        uses: chadxz/s3-delete-objects-action@v0.1.0
-        with:
-          bucket: helloworldappbucket
+#       - name: "Delete S3 Objects" 
+#         uses: chadxz/s3-delete-objects-action@v0.1.0
+#         with:
+#           bucket: helloworldappbucket
           
 
       - name: upload to s3
