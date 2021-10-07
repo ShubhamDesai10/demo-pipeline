@@ -46,6 +46,9 @@ jobs:
         with:
           name: my-artifact
           path: ${{ github.workspace }}/hello-pkg.zip
+          
+      - name: set file permissions
+        run: sudo chmod 777 /home/runner/work/demo-pipeline/demo-pipeline
          
 
       # Configure AWS Credential
