@@ -41,14 +41,13 @@ jobs:
           recursive: false
           # Name of output zip file
           dest: hello-pkg.zip
+        
+      - name: check working directory
+        run: pwd
           
-      - uses: actions/upload-artifact@v1
-        with:
-          name: my-artifact
-          path: ${{ github.workspace }}/hello-pkg.zip
           
-      - name: set file permissions
-        run: sudo chmod 777 /home/runner/work/demo-pipeline/demo-pipeline
+      - name: Set file permissions
+        run: sudo chmod 777 /hello-pkg.zip
          
 
       # Configure AWS Credential
@@ -74,7 +73,7 @@ jobs:
           # Name of S3 Bucket
           bucket: helloworldappbucket
           # A Local Source Directory to Upload
-          source: /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
+          source: /hello-pkg.zip
       
 
       # Deploy to AWS CloudFormation
