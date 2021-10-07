@@ -37,14 +37,9 @@ jobs:
         uses: vimtor/action-zip@v1
         with:
           # Files or directories to zip
-          files: hello-world/index.py
+          files: index.py
           dest: hello-pkg.zip
           recursive: false
-          
-          
-        
-      - name: check working directory
-        run: pwd
           
           
       - name: Set file permissions
@@ -65,16 +60,6 @@ jobs:
         with:
           bucket: helloworldappbucket
           
-          
-#       - name: AWS Deploy S3
-#         uses: oneyedev/aws-deploy-s3@v2
-#         with:
-#           # AWS Region of S3 Bucket
-#           region: us-east-2
-#           # Name of S3 Bucket
-#           bucket: helloworldappbucket
-#           # A Local Source Directory to Upload
-#           source: /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
 
       - name: upload to s3
         run: aws s3 cp /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip s3://helloworldappbucket/
