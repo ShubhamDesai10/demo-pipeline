@@ -32,6 +32,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install boto3
           pip install requests
+          
+      - name: Zip File
+        uses: vimtor/action-zip@v1
+        with:
+          # Files or directories to zip
+          files: ./hello-world/index.py
+          # Name of output zip file
+          dest: hello-pkg.zip
 
       # Configure AWS Credential
       - name: Configure AWS Credentials
@@ -41,6 +49,23 @@ jobs:
           aws-secret-access-key: ${{ SECRETS.ACCESS_KEY_SECRET }}
           aws-session-token: ${{ SECRETS.SESSION_TOKEN }}
           aws-region: ${{ github.event.inputs.region }}
+          
+      - name: "Delete S3 Objects" 
+        uses: chadxz/s3-delete-objects-action@v0.1.0
+        with:
+          bucket: helloworldappbucket
+          
+          
+      - name: AWS Deploy S3
+        uses: oneyedev/aws-deploy-s3@v2
+        with:
+          # AWS Region of S3 Bucket
+          region: us-east-2
+          # Name of S3 Bucket
+          bucket: helloworldappbucket
+          # A Local Source Directory to Upload
+          source: ./hello-pkg.zip
+      
 
       # Deploy to AWS CloudFormation
       - name: Deploy to AWS CloudFormation
