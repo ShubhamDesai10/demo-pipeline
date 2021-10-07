@@ -64,7 +64,7 @@ jobs:
           # Name of S3 Bucket
           bucket: helloworldappbucket
           # A Local Source Directory to Upload
-          source: ./hello-pkg.zip
+          source: hello-pkg.zip
       
 
       # Deploy to AWS CloudFormation
