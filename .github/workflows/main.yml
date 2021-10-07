@@ -34,13 +34,14 @@ jobs:
           pip install requests
           
       - name: Zip File
-        uses: papeloto/action-zip@v1
+        uses: vimtor/action-zip@v1
         with:
           # Files or directories to zip
           files: hello-world/index.py
-          recursive: false
-          # Name of output zip file
           dest: hello-pkg.zip
+          recursive: false
+          
+          
         
       - name: check working directory
         run: pwd
