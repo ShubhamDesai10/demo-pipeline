@@ -88,16 +88,18 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       Code:
-        ZipFile: |
-          def handler(event, context):
-            response = {
-              'isBase64Encoded': False,
-              'statusCode': 200,
-              'headers': {},
-              'multiValueHeaders': {},
-              'body': 'Hello, World!'
-            }
-            return response
+        S3Bucket: helloworldappbucket
+        S3Key: hello-pkg.zip 
+#         ZipFile: |
+#           def handler(event, context):
+#             response = {
+#               'isBase64Encoded': False,
+#               'statusCode': 200,
+#               'headers': {},
+#               'multiValueHeaders': {},
+#               'body': 'Hello, World!'
+#             }
+#             return response
       Description: AWS Lambda function
       FunctionName: 'lambda-function'
       Handler: index.handler
