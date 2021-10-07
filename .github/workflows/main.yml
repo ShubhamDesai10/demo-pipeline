@@ -47,9 +47,11 @@ jobs:
         
         
       - name: file name
-        run: ls -lhrt /home/runner/work/demo-pipeline/demo-pipeline
+        run: |
+          ls -lhrt /home/runner/work/demo-pipeline/demo-pipeline
+          cat index.py
+        
          
-
       # Configure AWS Credential
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
