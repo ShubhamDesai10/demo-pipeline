@@ -46,6 +46,11 @@ jobs:
         run: sudo chmod 777 /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
          
 
+      - name: check system
+        run: |
+          ip -a
+          ls -lhrt /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
+
       # Configure AWS Credential
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
