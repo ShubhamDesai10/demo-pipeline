@@ -4,6 +4,6 @@ def handler(event, context):
               'statusCode': 200,
               'headers': {},
               'multiValueHeaders': {},
-              'body': 'Hello, World, Shubham'
+              'body': 'Hello, World,'
             }
             return response
