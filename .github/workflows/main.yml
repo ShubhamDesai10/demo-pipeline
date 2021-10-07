@@ -44,6 +44,10 @@ jobs:
           
       - name: Set file permissions
         run: sudo chmod 777 /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
+        
+        
+      - name: file name
+        run: ls -lhrt /home/runner/work/demo-pipeline/demo-pipeline
          
 
       # Configure AWS Credential
