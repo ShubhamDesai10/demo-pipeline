@@ -80,7 +80,7 @@ jobs:
           no-fail-on-empty-changeset: "1"
           
       - name: update lambda function 
-        run: aws lambda update-function-code --function-name lambda-function --s3-bucket helloworldappbucket --s3-key hello-pkg
+        run: aws lambda update-function-code --function-name lambda-function --s3-bucket helloworldappbucket --s3-key hello-pkg.zip
           
       - name: Run Tests
         run: python unitTest.py
