@@ -1,0 +1,79 @@
+name: 'Deploy to AWS CloudFormation'
+
+on: [push]
+
+#   workflow_dispatch:
+#     inputs:
+#       region:
+#         description: 'AWS Region to deploy to'
+#         required: true
+#         default: 'us-east-2'
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout code from hello-pipeline branch
+        uses: actions/checkout@v2
+        with:
+          ref: hello-pipeline
+          
+      - name: Setup python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.9
+          
+      - name: Install dependency 
+        run: |
+          python -m pip install --upgrade pip
+          pip install boto3
+          pip install requests
+          
+      - name: Zip File
+        uses: vimtor/action-zip@v1
+        with:
+          # Files or directories to zip
+          files: index.py
+          dest: hello-pkg.zip
+          recursive: false
+          
+          
+      - name: Set file permissions
+        run: sudo chmod 777 /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
+        
+        
+      - name: file name
+        run: |
+          ls -lhrt /home/runner/work/demo-pipeline/demo-pipeline
+          cat index.py
+        
+         
+      # Configure AWS Credential
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ SECRETS.ACCESS_KEY }}
+          aws-secret-access-key: ${{ SECRETS.ACCESS_KEY_SECRET }}
+          aws-session-token: ${{ SECRETS.SESSION_TOKEN }}
+          aws-region: ${{ SECRETS.REGION }}
+          
+
+      - name: upload to s3
+        run: aws s3 cp /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip s3://helloworldappbucket/
+      
+
+      # Deploy to AWS CloudFormation
+      - name: Deploy to AWS CloudFormation
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with:
+          name: Hello-App
+          template: Hello-App-Stack.yaml
+          no-fail-on-empty-changeset: "1"
+          
+      - name: update lambda function 
+        run: aws lambda update-function-code --function-name lambda-function --s3-bucket helloworldappbucket --s3-key hello-pkg.zip
+          
+      - name: Run Tests
+        run: python unitTest.py
