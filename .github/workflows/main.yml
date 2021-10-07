@@ -71,7 +71,7 @@ jobs:
           # Name of S3 Bucket
           bucket: helloworldappbucket
           # A Local Source Directory to Upload
-          source: /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
+          source: /home/runner/work/demo-pipeline/demo-pipeline
       
 
       # Deploy to AWS CloudFormation
