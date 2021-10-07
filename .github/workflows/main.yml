@@ -79,6 +79,9 @@ jobs:
           template: Hello-App-Stack.yaml
           no-fail-on-empty-changeset: "1"
           
+      - name: update lambda function 
+        run: aws lambda update-function-code --function-name lambda-function --s3-bucket helloworldappbucket --s3-key hello-pkg
+          
       - name: Run Tests
         run: python unitTest.py
       
