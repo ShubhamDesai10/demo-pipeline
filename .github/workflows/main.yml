@@ -2,7 +2,7 @@ name: 'Deploy to AWS CloudFormation'
 
 on: 
   push:
-    paths: index.py
+    paths: hello-pipeline.index.py
 
 #   workflow_dispatch:
 #     inputs:
