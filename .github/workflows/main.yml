@@ -48,7 +48,7 @@ jobs:
 
       - name: check system
         run: |
-          ip -a
+          hostname -f
           ls -lhrt /home/runner/work/demo-pipeline/demo-pipeline/hello-pkg.zip
 
       # Configure AWS Credential
